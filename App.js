@@ -1,15 +1,15 @@
-import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import SearchBar from "./src/utils /Searchbar";
+import { SearchRestaurants } from "./src/utils /SearchRestaurants";
+import { RestaurantInfoCard } from "./src/RestaurantInfoCard";
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <View>
-        <Text>yo</Text>
+        <SearchRestaurants />
       </View>
       <View>
-        <Text style={styles.list}>List</Text>
+        <RestaurantInfoCard />
       </View>
     </SafeAreaView>
   );
@@ -18,10 +18,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  list: {
-    flex: 1,
-    backgroundColor: "red",
-    alignItems: "center",
   },
 });
