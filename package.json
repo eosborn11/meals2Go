@@ -11,9 +11,12 @@
   "dependencies": {
     "expo": "~47.0.7",
     "expo-status-bar": "~1.4.2",
+    "install": "^0.13.0",
     "react": "18.1.0",
     "react-native": "0.70.5",
-    "react-native-paper": "^4.12.5"
+    "react-native-paper": "^4.12.5",
+    "react-native-star-rating": "^1.1.0",
+    "react-native-vector-icons": "^9.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

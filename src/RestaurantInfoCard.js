@@ -1,10 +1,12 @@
 import React from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { Alert, FlatList, StyleSheet, View } from "react-native";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
+import StarRating from "react-native-star-rating";
+import { Restaurants } from "./RestaurantData";
 const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
 
 export const RestaurantInfoCard = (props) => {
-  const { name, description, icon, photos, address, isOpenNow, rating } = props;
+  const { name, description, rating, address } = props;
 
   return (
     <View>
@@ -12,6 +14,9 @@ export const RestaurantInfoCard = (props) => {
         <Card.Content>
           <Title>{name}</Title>
           <Paragraph>{description}</Paragraph>
+          <Paragraph>{address}</Paragraph>
+
+          <Paragraph>{rating}</Paragraph>
         </Card.Content>
         <Card.Cover
           source={{
@@ -19,8 +24,18 @@ export const RestaurantInfoCard = (props) => {
           }}
         />
         <Card.Actions>
-          <Button>Order Now</Button>
-          <Button>leave rating</Button>
+          <Button
+            style={styles.Button}
+            onPress={() => Alert.alert("button pressed")}
+          >
+            Order Now
+          </Button>
+          <Button
+            style={styles.Button}
+            onPress={() => Alert.alert("button pressed")}
+          >
+            leave rating
+          </Button>
         </Card.Actions>
       </Card>
     </View>
@@ -34,5 +49,11 @@ const styles = StyleSheet.create({
     borderColor: "red",
     borderWidth: 5,
     elevation: 5,
+  },
+  Button: {
+    elevation: 5,
+    borderWidth: 2,
+    borderColor: "black",
+    margin: 5,
   },
 });

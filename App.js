@@ -8,32 +8,23 @@ import {
 } from "react-native";
 import { SearchRestaurants } from "./src/utils /SearchRestaurants";
 import { RestaurantInfoCard } from "./src/RestaurantInfoCard";
-
-const data = [
-  {
-    name: "roosters",
-    description: "good",
-  },
-  {
-    name: "house of japan",
-    description: "fancy",
-  },
-  {
-    name: "ruth chris",
-    description: "getting lucky",
-  },
-];
+import { restaurants } from "./src/RestaurantData";
 
 export default function App() {
   const renderItem = ({ item }) => (
-    <RestaurantInfoCard name={item.name} description={item.description} />
+    <RestaurantInfoCard
+      name={item.name}
+      description={[item.description, item.isOpenNow]}
+      address={item.address}
+      rating={item.rating}
+    />
   );
   return (
     <SafeAreaView style={styles.container}>
       <View>
         <SearchRestaurants />
       </View>
-      <FlatList data={data} renderItem={renderItem} />
+      <FlatList data={restaurants} renderItem={renderItem} />
     </SafeAreaView>
   );
 }
