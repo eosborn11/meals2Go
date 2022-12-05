@@ -1,12 +1,15 @@
 import React from "react";
 import { Alert, FlatList, StyleSheet, View } from "react-native";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
-import StarRating from "react-native-star-rating";
 import { Restaurants } from "./RestaurantData";
+import { SvgXml } from "react-native-svg";
+import star from "./utils /star";
 const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
 
 export const RestaurantInfoCard = (props) => {
   const { name, description, rating, address } = props;
+
+  const ratingArray = Array.from(new Array(Math.floor(rating)));
 
   return (
     <View>
@@ -15,8 +18,11 @@ export const RestaurantInfoCard = (props) => {
           <Title>{name}</Title>
           <Paragraph>{description}</Paragraph>
           <Paragraph>{address}</Paragraph>
-
-          <Paragraph>{rating}</Paragraph>
+          <Paragraph>
+            {ratingArray.map(() => (
+              <SvgXml xml={star} width={20} height={20} />
+            ))}
+          </Paragraph>
         </Card.Content>
         <Card.Cover
           source={{
