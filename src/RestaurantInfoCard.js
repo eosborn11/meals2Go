@@ -1,16 +1,15 @@
 import React from "react";
 import { Alert, FlatList, StyleSheet, View } from "react-native";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
-import { Restaurants } from "./RestaurantData";
 import { SvgXml } from "react-native-svg";
 import star from "./utils /star";
+import openNow from "./utils /openNow";
 const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
 
 export const RestaurantInfoCard = (props) => {
-  const { name, description, rating, address } = props;
+  const { name, description, rating, address, isOpenNow } = props;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
-
   return (
     <View>
       <Card style={styles.Card}>
@@ -18,10 +17,15 @@ export const RestaurantInfoCard = (props) => {
           <Title>{name}</Title>
           <Paragraph>{description}</Paragraph>
           <Paragraph>{address}</Paragraph>
-          <Paragraph>
-            {ratingArray.map(() => (
-              <SvgXml xml={star} width={20} height={20} />
+          <Paragraph style={styles.rating}>
+            {ratingArray.map((_, index) => (
+              <SvgXml xml={star} width={20} height={20} key={index} />
             ))}
+            {isOpenNow && (
+              <View style={styles.isOpenNow}>
+                <SvgXml xml={openNow} width={20} height={20} paddingLeft={60} />
+              </View>
+            )}
           </Paragraph>
         </Card.Content>
         <Card.Cover
@@ -49,7 +53,7 @@ export const RestaurantInfoCard = (props) => {
 };
 
 const styles = StyleSheet.create({
-  title: {},
+  Title: {},
   Card: {
     margin: 5,
     borderColor: "red",
@@ -61,5 +65,14 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "black",
     margin: 5,
+  },
+  rating: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  isOpenNow: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "flex-end",
   },
 });

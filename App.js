@@ -11,14 +11,7 @@ import { RestaurantInfoCard } from "./src/RestaurantInfoCard";
 import { restaurants } from "./src/RestaurantData";
 
 export default function App() {
-  const renderItem = ({ item }) => (
-    <RestaurantInfoCard
-      name={item.name}
-      description={[item.description, item.isOpenNow]}
-      address={item.address}
-      rating={item.rating}
-    />
-  );
+  const renderItem = ({ item }) => <RestaurantInfoCard {...item} />;
   return (
     <SafeAreaView style={styles.container}>
       <View>
