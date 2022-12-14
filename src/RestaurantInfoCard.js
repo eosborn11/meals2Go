@@ -2,8 +2,8 @@ import React from "react";
 import { Alert, FlatList, StyleSheet, View } from "react-native";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
-import star from "./utils /star";
-import openNow from "./utils /openNow";
+import star from "./icons/star";
+import openNow from "./icons/openNow";
 const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
 
 export const RestaurantInfoCard = (props) => {

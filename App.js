@@ -1,30 +1,27 @@
-import {
-  FlatList,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
-import { SearchRestaurants } from "./src/utils /SearchRestaurants";
-import { RestaurantInfoCard } from "./src/RestaurantInfoCard";
-import { restaurants } from "./src/RestaurantData";
+import * as React from "react";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import { HomeScreen } from "./src/Screens/RestaurantScreen";
+import { PreviouslyOrderedScreen } from "./src/Screens/PreviouslyOrderedScreen";
+import { MapScreen } from "./src/Screens/MapScreen";
 
-export default function App() {
-  const renderItem = ({ item }) => <RestaurantInfoCard {...item} />;
+const Tab = createBottomTabNavigator();
+
+function MyTabs() {
   return (
-    <SafeAreaView style={styles.container}>
-      <View>
-        <SearchRestaurants />
-      </View>
-      <FlatList data={restaurants} renderItem={renderItem} />
-    </SafeAreaView>
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Map" component={MapScreen} />
+      <Tab.Screen name="Previous Orders" component={PreviouslyOrderedScreen} />
+    </Tab.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "blue",
-  },
-});
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
+  );
+}
