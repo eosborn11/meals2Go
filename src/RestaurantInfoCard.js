@@ -1,5 +1,5 @@
 import React from "react";
-import { Alert, FlatList, StyleSheet, View } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 import star from "./icons/star";
