@@ -4,15 +4,39 @@ import { NavigationContainer } from "@react-navigation/native";
 import { HomeScreen } from "./src/Screens/RestaurantScreen";
 import { PreviouslyOrderedScreen } from "./src/Screens/PreviouslyOrderedScreen";
 import { MapScreen } from "./src/Screens/MapScreen";
-
+import {
+  Icons,
+  mapTabBarIcon,
+  previousOrderTabBarIcon,
+  restaurantTabBarIcon,
+  tabBarIcon,
+} from "./src/icons/restaurantTabBarIcon";
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Map" component={MapScreen} />
-      <Tab.Screen name="Previous Orders" component={PreviouslyOrderedScreen} />
+      <Tab.Screen
+        options={{
+          tabBarIcon: restaurantTabBarIcon,
+        }}
+        name="Restaurants"
+        component={HomeScreen}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: mapTabBarIcon,
+        }}
+        name="Map"
+        component={MapScreen}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: previousOrderTabBarIcon,
+        }}
+        name="Previous Orders"
+        component={PreviouslyOrderedScreen}
+      />
     </Tab.Navigator>
   );
 }
