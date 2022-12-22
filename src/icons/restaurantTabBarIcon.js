@@ -1,5 +1,4 @@
-import { MaterialCommunityIcons } from "expo-vector-icons";
-import { Fontisto } from "@expo/vector-icons";
+import { MaterialCommunityIcons, Fontisto } from "@expo/vector-icons";
 
 export const restaurantTabBarIcon = ({ color, size }) => {
   return <MaterialCommunityIcons name="food" size={size} color={color} />;
