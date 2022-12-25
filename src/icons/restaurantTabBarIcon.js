@@ -4,7 +4,7 @@ export const restaurantTabBarIcon = ({ color, size }) => {
   return <MaterialCommunityIcons name="food" size={size} color={color} />;
 };
 
-export const mapTabBarIcon = ({ color, size, name }) => {
+export const mapTabBarIcon = ({ color, size }) => {
   return (
     <MaterialCommunityIcons
       name="map-marker-multiple"
