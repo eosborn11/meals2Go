@@ -1,5 +1,6 @@
 import { mocks } from "./mock";
 import camelize from "camelize";
+
 export const restaurantRequest = (location) => {
   const mock = mocks[location];
   new Promise((resolve, reject) => {
@@ -9,4 +10,20 @@ export const restaurantRequest = (location) => {
     resolve(mock);
   });
 };
-restaurantRequest().then((result) => {});
+export const restaurantTransform = ({ results = [] }) => {
+  const mappedResults = results.map((restaurant) => {
+    return {
+      ...restaurant,
+      isOpenNow: restaurant.opening_hours && restaurant.opening_hours.open_now,
+    };
+  });
+  return camelize(mappedResults);
+};
+// restaurantRequest()
+//   .then(restaurantTransform)
+//   .then((transformedResponse) => {
+//     console.log(transformedResponse);
+//   })
+//   .catch((err) => {
+//     return err;
+//   });

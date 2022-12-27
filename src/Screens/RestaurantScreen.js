@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, SafeAreaView, StyleSheet, FlatList } from "react-native";
 import { restaurants } from "../RestaurantData";
 import { SearchRestaurants } from "../utils/SearchRestaurants";
 import { RestaurantInfoCard } from "../RestaurantInfoCard";
+import {
+  RestaurantsContext,
+  RestaurantsContextProvider,
+} from "../services/restaurants/restaurants.context";
 
-export function HomeScreen() {
-  const renderItem = ({ item }) => <RestaurantInfoCard {...item} />;
+export function RestaurantScreen() {
+  const restaurantContext = useContext(RestaurantsContext);
+  console.log(restaurantContext);
+
   return (
     <SafeAreaView style={styles.container}>
       <View>
         <SearchRestaurants />
       </View>
       <View>
-        <FlatList data={restaurants} renderItem={renderItem} />
+        <FlatList
+          data={RestaurantsContext.restaurants}
+          renderItem={() => <RestaurantInfoCard />}
+          keyExtractor={(item) => item.name}
+        />
       </View>
     </SafeAreaView>
   );

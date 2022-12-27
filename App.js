@@ -1,7 +1,7 @@
 import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { HomeScreen } from "./src/Screens/RestaurantScreen";
+import { RestaurantScreen } from "./src/Screens/RestaurantScreen";
 import { PreviouslyOrderedScreen } from "./src/Screens/PreviouslyOrderedScreen";
 import { MapScreen } from "./src/Screens/MapScreen";
 import {
@@ -11,6 +11,7 @@ import {
   restaurantTabBarIcon,
   tabBarIcon,
 } from "./src/icons/restaurantTabBarIcon";
+import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
@@ -21,7 +22,7 @@ function MyTabs() {
           tabBarIcon: restaurantTabBarIcon,
         }}
         name="Restaurants"
-        component={HomeScreen}
+        component={RestaurantScreen}
       />
       <Tab.Screen
         options={{
@@ -43,8 +44,10 @@ function MyTabs() {
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <MyTabs />
-    </NavigationContainer>
+    <RestaurantsContextProvider>
+      <NavigationContainer>
+        <MyTabs />
+      </NavigationContainer>
+    </RestaurantsContextProvider>
   );
 }
