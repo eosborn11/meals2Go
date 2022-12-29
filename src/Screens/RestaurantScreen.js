@@ -1,16 +1,23 @@
 import React, { useContext } from "react";
 import { View, SafeAreaView, StyleSheet, FlatList } from "react-native";
-import { restaurants } from "../RestaurantData";
 import { SearchRestaurants } from "../utils/SearchRestaurants";
 import { RestaurantInfoCard } from "../RestaurantInfoCard";
-import {
-  RestaurantsContext,
-  RestaurantsContextProvider,
-} from "../services/restaurants/restaurants.context";
+import { RestaurantsContext } from "../services/restaurants/restaurants.context";
 
-export function RestaurantScreen() {
+export const RestaurantScreen = () => {
   const restaurantContext = useContext(RestaurantsContext);
-  console.log(restaurantContext);
+
+  const renderItem = ({ item }) => {
+    return (
+      <RestaurantInfoCard
+        name={item.name}
+        description={item.description}
+        rating={item.rating}
+        address={item.address}
+        isOpenNow={item.isOpenNow}
+      />
+    );
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -19,14 +26,14 @@ export function RestaurantScreen() {
       </View>
       <View>
         <FlatList
-          data={RestaurantsContext.restaurants}
-          renderItem={() => <RestaurantInfoCard />}
+          data={restaurantContext.restaurants}
+          renderItem={renderItem}
           keyExtractor={(item) => item.name}
         />
       </View>
     </SafeAreaView>
   );
-}
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,

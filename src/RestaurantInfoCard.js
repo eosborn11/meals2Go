@@ -10,6 +10,7 @@ export const RestaurantInfoCard = (props) => {
   const { name, description, rating, address, isOpenNow } = props;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
+
   return (
     <View>
       <Card style={styles.Card}>
