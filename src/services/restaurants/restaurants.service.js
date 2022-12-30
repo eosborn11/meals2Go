@@ -1,15 +1,18 @@
 import { mocks } from "./mock";
 import camelize from "camelize";
 
-export const restaurantRequest = (location) => {
+// export const restaurantRequest = (location = "37.7749295,-122.4194155") => {
+// console.log("request");
+export const restaurantRequest = new Promise((resolve, reject) => {
+  const location = "37.7749295,-122.4194155";
   const mock = mocks[location];
-  new Promise((resolve, reject) => {
-    if (!mock) {
-      reject("not found");
-    }
-    resolve(mock);
-  });
-};
+  if (!mock) {
+    reject("not found");
+  }
+  resolve(mock);
+  // console.log("mocks", mock);
+});
+// };
 export const restaurantTransform = ({ results = [] }) => {
   const mappedResults = results.map((restaurant) => {
     return {

@@ -5,15 +5,15 @@ import { RestaurantInfoCard } from "../RestaurantInfoCard";
 import { RestaurantsContext } from "../services/restaurants/restaurants.context";
 
 export const RestaurantScreen = () => {
-  const restaurantContext = useContext(RestaurantsContext);
-
+  const { isLoading, error, restaurants } = useContext(RestaurantsContext);
+  console.log("error", isLoading);
   const renderItem = ({ item }) => {
     return (
       <RestaurantInfoCard
         name={item.name}
         description={item.description}
         rating={item.rating}
-        address={item.address}
+        address={item.vicinity}
         isOpenNow={item.isOpenNow}
       />
     );
@@ -26,7 +26,7 @@ export const RestaurantScreen = () => {
       </View>
       <View>
         <FlatList
-          data={restaurantContext.restaurants}
+          data={restaurants}
           renderItem={renderItem}
           keyExtractor={(item) => item.name}
         />

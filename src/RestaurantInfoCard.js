@@ -4,7 +4,7 @@ import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 import star from "./icons/star";
 import openNow from "./icons/openNow";
-const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
+// const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
 
 export const RestaurantInfoCard = (props) => {
   const { name, description, rating, address, isOpenNow } = props;
