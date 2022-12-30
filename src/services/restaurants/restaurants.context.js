@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo, createContext } from "react";
+import { ActivityIndicator } from "react-native-paper";
 import { restaurantRequest, restaurantTransform } from "./restaurants.service";
 export const RestaurantsContext = createContext();
 

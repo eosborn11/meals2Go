@@ -1,12 +1,17 @@
 import React, { useContext } from "react";
-import { View, SafeAreaView, StyleSheet, FlatList } from "react-native";
+import {
+  View,
+  SafeAreaView,
+  StyleSheet,
+  FlatList,
+  ActivityIndicator,
+} from "react-native";
 import { SearchRestaurants } from "../utils/SearchRestaurants";
 import { RestaurantInfoCard } from "../RestaurantInfoCard";
 import { RestaurantsContext } from "../services/restaurants/restaurants.context";
 
 export const RestaurantScreen = () => {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
-  console.log("error", isLoading);
   const renderItem = ({ item }) => {
     return (
       <RestaurantInfoCard
@@ -15,6 +20,7 @@ export const RestaurantScreen = () => {
         rating={item.rating}
         address={item.vicinity}
         isOpenNow={item.isOpenNow}
+        // photo={item.photos}
       />
     );
   };
@@ -24,13 +30,16 @@ export const RestaurantScreen = () => {
       <View>
         <SearchRestaurants />
       </View>
-      <View>
-        <FlatList
-          data={restaurants}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.name}
-        />
-      </View>
+      <FlatList
+        data={restaurants}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.name}
+      />
+      {isLoading && (
+        <View style={styles.ActivityIndicator}>
+          <ActivityIndicator size={"large"} color={"red"} />
+        </View>
+      )}
     </SafeAreaView>
   );
 };
@@ -38,5 +47,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "blue",
+  },
+  ActivityIndicator: {
+    alignItems: "center",
+    flex: 1,
   },
 });
