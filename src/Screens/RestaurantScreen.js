@@ -11,7 +11,7 @@ export const RestaurantScreen = () => {
     return (
       <RestaurantInfoCard
         name={item.name}
-        description={item.description}
+        description={item.types}
         rating={item.rating}
         address={item.vicinity}
         isOpenNow={item.isOpenNow}
