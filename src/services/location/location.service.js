@@ -1,9 +1,8 @@
-import React from "react";
 import camelize from "camelize";
 import { locations } from "../restaurants/mock/locations.mock";
 
 export const locationRequest = (searchTerm) => {
-  new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     const locationMock = locations[searchTerm];
     if (!locationMock) {
       reject("not found");

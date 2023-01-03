@@ -20,7 +20,7 @@ export const RestaurantScreen = () => {
         rating={item.rating}
         address={item.vicinity}
         isOpenNow={item.isOpenNow}
-        photos={item.photos}
+        // photos={item.photos}
       />
     );
   };

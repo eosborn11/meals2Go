@@ -12,6 +12,7 @@ import {
   tabBarIcon,
 } from "./src/icons/restaurantTabBarIcon";
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
+import { LocationContextProvider } from "./src/services/location/location.context";
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
@@ -44,10 +45,12 @@ function MyTabs() {
 
 export default function App() {
   return (
-    <RestaurantsContextProvider>
-      <NavigationContainer>
-        <MyTabs />
-      </NavigationContainer>
-    </RestaurantsContextProvider>
+    <LocationContextProvider>
+      <RestaurantsContextProvider>
+        <NavigationContainer>
+          <MyTabs />
+        </NavigationContainer>
+      </RestaurantsContextProvider>
+    </LocationContextProvider>
   );
 }
