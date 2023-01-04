@@ -23,5 +23,7 @@ export const restaurantTransform = ({ results = [] }) => {
       isOpenNow: restaurant.opening_hours && restaurant.opening_hours.open_now,
     };
   });
+
+  console.log(mappedResults[0]);
   return camelize(mappedResults);
 };

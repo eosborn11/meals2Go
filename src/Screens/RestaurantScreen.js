@@ -9,10 +9,12 @@ import {
 import { SearchRestaurants } from "../utils/SearchRestaurants";
 import { RestaurantInfoCard } from "../RestaurantInfoCard";
 import { RestaurantsContext } from "../services/restaurants/restaurants.context";
-
+import { restaurantTransform } from "../services/restaurants/restaurants.service";
 export const RestaurantScreen = () => {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
-  const renderItem = ({ item }) => {
+  const transformedRestaurants = restaurantTransform({ results: restaurants });
+  const renderItem = ({ item, index }) => {
+    console.log(item.photos[0]);
     return (
       <RestaurantInfoCard
         name={item.name}
@@ -20,7 +22,8 @@ export const RestaurantScreen = () => {
         rating={item.rating}
         address={item.vicinity}
         isOpenNow={item.isOpenNow}
-        // photos={item.photos}
+        photos={item.photos[0]}
+        console
       />
     );
   };
@@ -31,7 +34,7 @@ export const RestaurantScreen = () => {
         <SearchRestaurants />
       </View>
       <FlatList
-        data={restaurants}
+        data={transformedRestaurants}
         renderItem={renderItem}
         keyExtractor={(item) => item.name}
       />
