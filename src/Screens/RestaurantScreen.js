@@ -14,7 +14,6 @@ export const RestaurantScreen = () => {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
   const transformedRestaurants = restaurantTransform({ results: restaurants });
   const renderItem = ({ item, index }) => {
-    console.log(item.photos[0]);
     return (
       <RestaurantInfoCard
         name={item.name}
