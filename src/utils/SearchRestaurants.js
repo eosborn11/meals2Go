@@ -5,7 +5,6 @@ import { LocationContext } from "../services/location/location.context";
 export const SearchRestaurants = () => {
   const { keyword, search } = useContext(LocationContext);
   const [searchKeyword, setSearchKeyword] = useState(keyword);
-
   return (
     <Searchbar
       placeholder="Search"
@@ -14,8 +13,6 @@ export const SearchRestaurants = () => {
         search(searchKeyword);
       }}
       onChangeText={(text) => {
-        if (!text.length) {
-        }
         setSearchKeyword(text);
       }}
     />
