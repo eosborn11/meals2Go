@@ -1,4 +1,3 @@
-import { RestaurantScreen } from "../Screens/RestaurantScreen";
 import { PreviouslyOrderedScreen } from "../Screens/PreviouslyOrderedScreen";
 import { MapScreen } from "../Screens/MapScreen";
 import {
@@ -7,6 +6,7 @@ import {
   restaurantTabBarIcon,
 } from "../icons/restaurantTabBarIcon";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { RestaurantNavigator } from "./restaurant.navigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -18,7 +18,7 @@ export function MyTabs() {
           tabBarIcon: restaurantTabBarIcon,
         }}
         name="Restaurants"
-        component={RestaurantScreen}
+        component={RestaurantNavigator}
       />
       <Tab.Screen
         options={{
