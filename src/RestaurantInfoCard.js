@@ -10,7 +10,7 @@ import openNow from "./icons/openNow";
 export const RestaurantInfoCard = (props) => {
   const { name, description, rating, address, isOpenNow, photos } = props;
 
-  const ratingArray = Array.from(new Array(Math.floor(rating)));
+  // const ratingArray = Array.from(new Array(Math.floor(rating)));
 
   return (
     <View>
@@ -20,9 +20,9 @@ export const RestaurantInfoCard = (props) => {
           <Paragraph>{description}</Paragraph>
           <Paragraph>{address}</Paragraph>
           <Paragraph style={styles.rating}>
-            {ratingArray.map((_, index) => (
+            {/* {ratingArray.map((_, index) => (
               <SvgXml xml={star} width={20} height={20} key={index} />
-            ))}
+            ))} */}
             {isOpenNow && (
               <View style={styles.isOpenNow}>
                 <SvgXml xml={openNow} width={20} height={20} paddingLeft={60} />
