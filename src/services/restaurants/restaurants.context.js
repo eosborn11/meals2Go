@@ -13,12 +13,13 @@ export const RestaurantsContextProvider = ({ children }) => {
       restaurantRequest
         .then(restaurantTransform)
         .then((results) => {
-          setIsLoading(false);
           setRestaurants(results);
         })
         .catch((err) => {
-          setIsLoading(false);
           setError(err);
+        })
+        .finally(() => {
+          setIsLoading(false);
         });
     }, 2000);
   };

@@ -22,7 +22,6 @@ export const RestaurantScreen = () => {
         address={item.vicinity}
         isOpenNow={item.isOpenNow}
         photos={item.photos[0]}
-        console
       />
     );
   };
