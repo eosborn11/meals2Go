@@ -5,13 +5,15 @@ import {
   StyleSheet,
   FlatList,
   ActivityIndicator,
+  Pressable,
 } from "react-native";
 import { SearchRestaurants } from "../utils/SearchRestaurants";
 import { RestaurantInfoCard } from "../RestaurantInfoCard";
 import { RestaurantsContext } from "../services/restaurants/restaurants.context";
 import { restaurantTransform } from "../services/restaurants/restaurants.service";
-export const RestaurantScreen = () => {
-  const { isLoading, error, restaurants } = useContext(RestaurantsContext);
+
+export const RestaurantScreen = ({ navigation }) => {
+  const { isLoading, restaurants } = useContext(RestaurantsContext);
   const transformedRestaurants = restaurantTransform({ results: restaurants });
   const renderItem = ({ item, index }) => {
     return (

@@ -8,6 +8,10 @@ export const RestaurantNavigator = () => {
   return (
     <RestaurantStack.Navigator>
       <RestaurantStack.Screen name="restaurants" component={RestaurantScreen} />
+      <RestaurantStack.Screen
+        name="restaurantDetail"
+        component={() => <Text>restaurantDetail</Text>}
+      />
     </RestaurantStack.Navigator>
   );
 };
