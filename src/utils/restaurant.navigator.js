@@ -5,6 +5,7 @@ import {
 } from "@react-navigation/stack";
 import { RestaurantScreen } from "../Screens/RestaurantScreen";
 import { Text } from "react-native";
+import { restaurantDetailScreen } from "../Screens/RestaurantDetailScreen";
 
 const RestaurantStack = createStackNavigator();
 
@@ -19,7 +20,7 @@ export const RestaurantNavigator = () => {
       <RestaurantStack.Screen name="restaurants" component={RestaurantScreen} />
       <RestaurantStack.Screen
         name="restaurantDetail"
-        component={() => <Text>restaurantDetail</Text>}
+        component={restaurantDetailScreen}
       />
       {/* <RestaurantStack.Screen
         name="restaurant1"
