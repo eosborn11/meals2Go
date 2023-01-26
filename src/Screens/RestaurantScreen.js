@@ -5,7 +5,7 @@ import {
   StyleSheet,
   FlatList,
   ActivityIndicator,
-  Pressable,
+  TouchableOpacity,
 } from "react-native";
 import { SearchRestaurants } from "../utils/SearchRestaurants";
 import { RestaurantInfoCard } from "../RestaurantInfoCard";
@@ -18,7 +18,7 @@ export const RestaurantScreen = ({ navigation }) => {
 
   const renderItem = ({ item, index }) => {
     return (
-      <Pressable onPress={() => navigation.navigate("restaurantDetail")}>
+      <TouchableOpacity onPress={() => navigation.navigate("restaurantDetail")}>
         <RestaurantInfoCard
           name={item.name}
           description={item.types}
@@ -27,7 +27,7 @@ export const RestaurantScreen = ({ navigation }) => {
           isOpenNow={item.isOpenNow}
           photos={item.photos[0]}
         />
-      </Pressable>
+      </TouchableOpacity>
     );
   };
 
