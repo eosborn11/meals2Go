@@ -15,16 +15,19 @@ import { restaurantTransform } from "../services/restaurants/restaurants.service
 export const RestaurantScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
   const transformedRestaurants = restaurantTransform({ results: restaurants });
+
   const renderItem = ({ item, index }) => {
     return (
-      <RestaurantInfoCard
-        name={item.name}
-        description={item.types}
-        rating={item.rating}
-        address={item.vicinity}
-        isOpenNow={item.isOpenNow}
-        photos={item.photos[0]}
-      />
+      <Pressable onPress={() => navigation.navigate("restaurantDetail")}>
+        <RestaurantInfoCard
+          name={item.name}
+          description={item.types}
+          rating={item.rating}
+          address={item.vicinity}
+          isOpenNow={item.isOpenNow}
+          photos={item.photos[0]}
+        />
+      </Pressable>
     );
   };
 
