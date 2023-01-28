@@ -17,3 +17,9 @@ export const mapTabBarIcon = ({ color, size }) => {
 export const previousOrderTabBarIcon = ({ color, size, name }) => {
   return <Fontisto name="preview" size={size} color={color} />;
 };
+
+export const MenuBarIcon = ({ color, size }) => {
+  return (
+    <MaterialCommunityIcons name="food-croissant" color={color} size={size} />
+  );
+};
