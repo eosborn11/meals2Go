@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { View } from "react-native";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Callout, Marker } from "react-native-maps";
 import { StyleSheet } from "react-native";
 import { SearchMaps } from "../utils/SearchMaps";
 import { LocationContext } from "../services/location/location.context";
 import { RestaurantsContext } from "../services/restaurants/restaurants.context";
+import { MapMarkerCallout } from "../services/Maps/mapMarkerCallout";
 
 export function MapScreen() {
   const { location } = useContext(LocationContext);
@@ -39,7 +40,11 @@ export function MapScreen() {
                 latitude: restaurant.geometry.location.lat,
                 longitude: restaurant.geometry.location.lng,
               }}
-            />
+            >
+              <Callout>
+                <MapMarkerCallout />
+              </Callout>
+            </Marker>
           );
         })}
       </MapView>
