@@ -5,6 +5,7 @@ import { LocationContext } from "../services/location/location.context";
 export const SearchRestaurants = () => {
   const { keyword, search } = useContext(LocationContext);
   const [searchKeyword, setSearchKeyword] = useState(keyword);
+
   useEffect(() => {
     setSearchKeyword(keyword);
   }, [keyword]);
