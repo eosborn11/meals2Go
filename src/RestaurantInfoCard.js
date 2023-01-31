@@ -13,40 +13,38 @@ export const RestaurantInfoCard = (props) => {
   // const ratingArray = Array.from(new Array(Math.floor(rating)));
 
   return (
-    <View>
-      <Card style={styles.Card}>
-        <Card.Content>
-          <Title>{name}</Title>
-          <Paragraph>{description}</Paragraph>
-          <Paragraph>{address}</Paragraph>
-          <Paragraph style={styles.rating}>
-            {/* {ratingArray.map((_, index) => (
+    <Card style={styles.Card}>
+      <Card.Content>
+        <Title>{name}</Title>
+        <Paragraph>{description}</Paragraph>
+        <Paragraph>{address}</Paragraph>
+        <Paragraph style={styles.rating}>
+          {/* {ratingArray.map((_, index) => (
               <SvgXml xml={star} width={20} height={20} key={index} />
             ))} */}
-            {isOpenNow && (
-              <View style={styles.isOpenNow}>
-                <SvgXml xml={openNow} width={20} height={20} paddingLeft={60} />
-              </View>
-            )}
-          </Paragraph>
-        </Card.Content>
-        <Card.Cover key={name} source={{ uri: photos }} />
-        <Card.Actions>
-          <Button
-            style={styles.Button}
-            onPress={() => Alert.alert("button pressed")}
-          >
-            Order Now
-          </Button>
-          <Button
-            style={styles.Button}
-            onPress={() => Alert.alert("button pressed")}
-          >
-            leave rating
-          </Button>
-        </Card.Actions>
-      </Card>
-    </View>
+          {isOpenNow && (
+            <View style={styles.isOpenNow}>
+              <SvgXml xml={openNow} width={20} height={20} paddingLeft={60} />
+            </View>
+          )}
+        </Paragraph>
+      </Card.Content>
+      <Card.Cover key={name} source={{ uri: photos }} />
+      <Card.Actions>
+        <Button
+          style={styles.Button}
+          onPress={() => Alert.alert("button pressed")}
+        >
+          Order Now
+        </Button>
+        <Button
+          style={styles.Button}
+          onPress={() => Alert.alert("button pressed")}
+        >
+          leave rating
+        </Button>
+      </Card.Actions>
+    </Card>
   );
 };
 
