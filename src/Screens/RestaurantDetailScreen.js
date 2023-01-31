@@ -35,7 +35,7 @@ export const RestaurantDetailScreen = ({ route }) => {
 
             <List.Accordion
               title="Lunch"
-              left={(props) => <List.Icon {...props} icon="food-croissant" />}
+              left={(props) => <List.Icon {...props} icon={"food"} />}
             >
               <List.Item title="grilled cheese" />
               <List.Item title="cheese burger" />
@@ -44,7 +44,7 @@ export const RestaurantDetailScreen = ({ route }) => {
 
             <List.Accordion
               title="Dinner"
-              left={(props) => <List.Icon {...props} icon="food-croissant" />}
+              left={(props) => <List.Icon {...props} icon={"food-turkey"} />}
             >
               <List.Item title="steak" />
               <List.Item title="fried chicken" />
