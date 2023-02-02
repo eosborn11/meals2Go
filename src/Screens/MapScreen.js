@@ -42,7 +42,7 @@ export function MapScreen() {
               }}
             >
               <Callout>
-                <MapMarkerCallout />
+                <MapMarkerCallout restaurant={restaurant} />
               </Callout>
             </Marker>
           );
