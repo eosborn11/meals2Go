@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Alert, StyleSheet, View } from "react-native";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
@@ -7,8 +7,13 @@ import openNow from "./icons/openNow";
 
 export const RestaurantInfoCard = (props) => {
   const { name, description, rating, address, isOpenNow, photos } = props;
+  const [ratingArray, setRatingArray] = useState([]);
 
-  const ratingArray = Array.from(new Array(Math.floor(rating)));
+  useEffect(() => {
+    if (rating) {
+      setRatingArray(Array.from(new Array(Math.floor(rating))));
+    }
+  }, [rating]);
 
   return (
     <Card style={styles.Card}>

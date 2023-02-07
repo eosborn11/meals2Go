@@ -5,7 +5,7 @@ import { Platform } from "react-native";
 
 // const isAndroid = Platform.OS === "android";
 
-export const MapMarkerCallout = ({ restaurant, photos }) => {
+export const MapMarkerCallout = ({ restaurant }) => {
   return (
     <View>
       <Text>{restaurant.name}</Text>
