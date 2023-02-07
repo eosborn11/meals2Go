@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView, Button, Alert } from "react-native";
 import { List } from "react-native-paper";
 import { RestaurantInfoCard } from "../RestaurantInfoCard";
 
-export const RestaurantDetailModal = ({ route }) => {
+export const RestaurantDetailModal = ({ route, navigation }) => {
   const { item } = route.params;
 
   return (
     <View style={styles.restaurantDetailRender}>
+      <Button title="Close" onPress={() => navigation.goBack()} />
       <View>
         <RestaurantInfoCard
           name={item.name}
