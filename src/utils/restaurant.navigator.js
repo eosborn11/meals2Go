@@ -4,7 +4,7 @@ import {
   createStackNavigator,
 } from "@react-navigation/stack";
 import { RestaurantScreen } from "../Screens/RestaurantScreen";
-import { RestaurantDetailScreen } from "../Screens/RestaurantDetailScreen";
+import { RestaurantDetailModal } from "../Screens/RestaurantDetailModal";
 
 const RestaurantStack = createStackNavigator();
 
@@ -19,12 +19,8 @@ export const RestaurantNavigator = () => {
       <RestaurantStack.Screen name="restaurants" component={RestaurantScreen} />
       <RestaurantStack.Screen
         name="restaurantDetail"
-        component={RestaurantDetailScreen}
+        component={RestaurantDetailModal}
       />
-      {/* <RestaurantStack.Screen
-        name="restaurant1"
-        component={() => <Text>restaurantDetail</Text>}
-      /> */}
     </RestaurantStack.Navigator>
   );
 };

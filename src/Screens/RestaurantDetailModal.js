@@ -3,7 +3,7 @@ import { View, StyleSheet, ScrollView } from "react-native";
 import { List } from "react-native-paper";
 import { RestaurantInfoCard } from "../RestaurantInfoCard";
 
-export const RestaurantDetailScreen = ({ route }) => {
+export const RestaurantDetailModal = ({ route }) => {
   const { item } = route.params;
 
   return (
