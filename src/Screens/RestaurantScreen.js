@@ -16,7 +16,7 @@ export const RestaurantScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
   const transformedRestaurants = restaurantTransform({ results: restaurants });
 
-  const renderItem = ({ item, index }) => {
+  const renderItem = ({ item }) => {
     return (
       <TouchableOpacity
         onPress={() => navigation.navigate("restaurantDetail", { item })}

@@ -7,7 +7,7 @@ import { LocationContext } from "../services/location/location.context";
 import { RestaurantsContext } from "../services/restaurants/restaurants.context";
 import { MapMarkerCallout } from "../services/Maps/mapMarkerCallout";
 
-export function MapScreen() {
+export const MapScreen = ({ navigation }) => {
   const { location } = useContext(LocationContext);
   const { restaurants = [] } = useContext(RestaurantsContext);
   const [latDelta, setLatDelta] = useState(0);
@@ -19,6 +19,7 @@ export function MapScreen() {
 
     setLatDelta(northeastLat - southwestLat);
   }, [location, viewport]);
+
   return (
     <View>
       <SearchMaps />
@@ -41,7 +42,13 @@ export function MapScreen() {
                 longitude: restaurant.geometry.location.lng,
               }}
             >
-              <Callout>
+              <Callout
+                onPress={() =>
+                  navigation.navigate("restaurantDetail", {
+                    restaurant,
+                  })
+                }
+              >
                 <MapMarkerCallout restaurant={restaurant} />
               </Callout>
             </Marker>
@@ -50,7 +57,7 @@ export function MapScreen() {
       </MapView>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   MapView: {
