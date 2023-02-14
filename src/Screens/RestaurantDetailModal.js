@@ -5,20 +5,24 @@ import {
   ScrollView,
   Button,
   TouchableWithoutFeedback,
+  TouchableOpacity,
 } from "react-native";
 import { List } from "react-native-paper";
 import { RestaurantInfoCard } from "../RestaurantInfoCard";
 
 export const RestaurantDetailModal = ({ route, navigation }) => {
   const { item } = route.params;
+  const [modalShown, setModalShown] = useState(true);
 
-  return (
-    <TouchableWithoutFeedback onPress={() => this.setState({ visible: false })}>
-      <View
-        isVisible={this.state.visible}
+  if (modalShown)
+    return (
+      <TouchableWithoutFeedback
         style={styles.restaurantDetailRender}
+        onPress={() => {
+          modalShown(false);
+        }}
       >
-        <TouchableWithoutFeedback onPress={() => {}}>
+        <TouchableOpacity onPressOut={() => navigation.goBack()}>
           <Button title="Close" onPress={() => navigation.goBack()} />
           <View>
             <RestaurantInfoCard
@@ -62,10 +66,9 @@ export const RestaurantDetailModal = ({ route, navigation }) => {
               </List.Accordion>
             </List.Section>
           </ScrollView>
-        </TouchableWithoutFeedback>
-      </View>
-    </TouchableWithoutFeedback>
-  );
+        </TouchableOpacity>
+      </TouchableWithoutFeedback>
+    );
 };
 const styles = StyleSheet.create({
   restaurantDetailRender: {
