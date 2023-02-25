@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { View } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import MapView, { Callout, Marker } from "react-native-maps";
 import { StyleSheet } from "react-native";
 import { SearchMaps } from "../utils/SearchMaps";
@@ -49,7 +49,13 @@ export const MapScreen = ({ navigation }) => {
                   })
                 }
               >
-                <MapMarkerCallout restaurant={restaurant} />
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate("restaurantDetail", { item })
+                  }
+                >
+                  <MapMarkerCallout restaurant={restaurant} />
+                </TouchableOpacity>
               </Callout>
             </Marker>
           );

@@ -3,28 +3,28 @@ import {
   TransitionPresets,
   createStackNavigator,
 } from "@react-navigation/stack";
-import { RestaurantScreen } from "../Screens/RestaurantScreen";
 import { RestaurantDetailModal } from "../Screens/RestaurantDetailModal";
+import { MapScreen } from "../Screens/MapScreen";
 
-const RestaurantStack = createStackNavigator();
+const MapStack = createStackNavigator();
 
-export const RestaurantNavigator = () => {
+export const MapNavigator = () => {
   return (
-    <RestaurantStack.Navigator
+    <MapStack.Navigator
       screenOptions={{
         ...TransitionPresets.ModalPresentationIOS,
       }}
     >
-      <RestaurantStack.Screen
-        name="restaurants"
-        component={RestaurantScreen}
+      <MapStack.Screen
+        name="Map"
+        component={MapScreen}
         options={{ headerShown: false, headerTitle: "Restaurants" }}
       />
-      <RestaurantStack.Screen
+      <MapStack.Screen
         name="restaurantDetail"
         component={RestaurantDetailModal}
         options={{ headerTitle: "" }}
       />
-    </RestaurantStack.Navigator>
+    </MapStack.Navigator>
   );
 };
