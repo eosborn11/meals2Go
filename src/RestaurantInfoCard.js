@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Alert, StyleSheet, View } from "react-native";
-import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
+import { Button, Card, Title, Paragraph } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 import star from "./icons/star";
 import openNow from "./icons/openNow";

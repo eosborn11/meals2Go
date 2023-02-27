@@ -1,13 +1,4 @@
-import React, { useState } from "react";
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  Button,
-  TouchableWithoutFeedback,
-  Modal,
-  Text,
-} from "react-native";
+import { View, StyleSheet, ScrollView, Button } from "react-native";
 import { List } from "react-native-paper";
 import { RestaurantInfoCard } from "../RestaurantInfoCard";
 

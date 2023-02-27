@@ -32,30 +32,22 @@ export const MapScreen = ({ navigation }) => {
           longitudeDelta: 0.02,
         }}
       >
-        {restaurants.map((restaurant) => {
+        {restaurants.map((item) => {
           return (
             <Marker
-              key={restaurant.name}
-              title={restaurant.name}
+              key={item.name}
+              title={item.name}
               coordinate={{
-                latitude: restaurant.geometry.location.lat,
-                longitude: restaurant.geometry.location.lng,
+                latitude: item.geometry.location.lat,
+                longitude: item.geometry.location.lng,
               }}
             >
               <Callout
                 onPress={() =>
-                  navigation.navigate("restaurantDetail", {
-                    restaurant,
-                  })
+                  navigation.navigate("restaurantDetail", { item })
                 }
               >
-                <TouchableOpacity
-                  onPress={() =>
-                    navigation.navigate("restaurantDetail", { item })
-                  }
-                >
-                  <MapMarkerCallout restaurant={restaurant} />
-                </TouchableOpacity>
+                <MapMarkerCallout restaurant={item} />
               </Callout>
             </Marker>
           );
